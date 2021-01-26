@@ -3,12 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { PokenewsComponent } from './components/pokenews/pokenews.component';
-=======
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
->>>>>>> RegisterComponent
 
 @NgModule({
   declarations: [

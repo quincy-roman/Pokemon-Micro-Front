@@ -1,6 +1,6 @@
-import { LoginService } from './../login.service';
+import { Trainer } from './../../models/Trainer.model';
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { Trainer } from '../models/Trainer.model';
 
 @Component({
   selector: 'app-register',

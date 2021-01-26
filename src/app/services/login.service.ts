@@ -1,5 +1,5 @@
-import { environment } from './../environments/environment';
-import { Trainer } from './models/Trainer.model';
+import { environment } from '../../environments/environment';
+import { Trainer } from '../models/Trainer.model';
 import { Injectable } from '@angular/core';
 import { fromEventPattern, Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';

@@ -6,5 +6,12 @@ export class LoginDAO {
     this.username = username;
     this.password = password;
   }
+  getUser(): string{
+    return this.username;
+  }
+
+  getPass(): string{
+    return this.password;
+  }
 
 }

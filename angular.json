@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "Pokemon-Microservices-Front"
+  "defaultProject": "Pokemon-Microservices-Front",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,92 @@
+h1{
+    font-family: "Pokemon Solid", sans-serif;
+    color: yellow;
+    -webkit-text-stroke: 0.5px black;
+    letter-spacing: 2.5px;
+    line-height: 2;
+    font-size: 2rem;
+}
+
+#start-section {
+    background-color: blue;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+img{
+    filter: grayscale(100%);
+    transition: 0.4s ease-in-out;
+}
+
+.notification-on{
+    filter: grayscale(0%);
+}
+.off{
+    display: none;
+}
+
+.red-dot{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: relative;
+    bottom: 25px;
+}
+#main-section{
+    margin: 10px auto;
+}
+
+.news-container{
+    background: linear-gradient(to right bottom, rgba(231,231,230, 0.7), rgba(231,231,230,0.3));
+    z-index: 5;
+    backdrop-filter: blur(2rem);
+}
+
+.news-item{
+    background-color: #363b81;
+    color: white;
+    width: 80%;
+    height: 200px;
+    margin: 10px auto;
+    padding: 0 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 3px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 3px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 3px 3px 0px rgba(0,0,0,0.75);
+}
+
+.news-item-left{
+    width: 60px;
+    float: left;
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    height: 60px;
+    background-color: #5db9ff;
+}
+
+
+.news-item-right{
+    width: 70%;
+    display: block;
+    float: left;
+    margin-left: 30px;
+}

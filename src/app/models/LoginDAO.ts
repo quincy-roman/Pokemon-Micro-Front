@@ -1,13 +1,13 @@
 export class LoginDAO {
-  username: string;
+  email: string;
   password: string;
 
   constructor(username: string, password: string) {
-    this.username = username;
+    this.email = username;
     this.password = password;
   }
   getUser(): string{
-    return this.username;
+    return this.email;
   }
 
   getPass(): string{

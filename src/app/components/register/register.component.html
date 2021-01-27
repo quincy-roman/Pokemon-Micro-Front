@@ -1,19 +1,27 @@
-<div class="container-lg">
-  <div class="register-form">
-    <div class="mb-3">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" (input) = "trainer.email"  required>
-      <small id="emailHelp" class="form-text " style="color: rgba(255, 255, 255, 0.418);">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" (input) = "trainer.username" required >
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign In</h5>
+          <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="email" formControlName="email" required autofocus>
+              <label for="inputEmail">Email address</label>
+            </div>
+            <div class="form-label-group">
+              <input type="email" id="inputUsername" class="form-control" placeholder="Username" formControlName="username" required autofocus>
+              <label for="inputEmail">Username</label>
+            </div>
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+              <label for="inputPassword">Password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+            <hr class="my-4">
+          </form>
+        </div>
       </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" (input)="trainer.password" required>
     </div>
-    
-    <button type="submit" class="btn btn-primary" (click)="registerUser()">Register</button>
   </div>
-  </div>
+</div>

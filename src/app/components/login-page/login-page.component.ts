@@ -16,12 +16,7 @@ export class LoginPageComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl('')
   });
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '/',
-      'Access-Control-Allow-Methods': 'OPTIONS, HEAD, GET, POST, PUT, PATCH, DELETE',
-      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type'
-    })};
+
 
   private loginUrl = 'login';
 
@@ -50,8 +45,8 @@ export class LoginPageComponent implements OnInit {
     this.loginService.login(logindetails).subscribe((data: any) => {
       console.log(data);
       alert(data.message);
-      this.router.navigate([('/home')]);
     });
+    this.router.navigate([('/home')]).then(r => {});
   }
   // ROUTE TO HOMEPAGE
 }

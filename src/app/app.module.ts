@@ -8,6 +8,7 @@ import { PokenewsComponent } from './components/pokenews/pokenews.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     PokenewsComponent,
     RegisterComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HomepageComponent
 
   ],
   imports: [

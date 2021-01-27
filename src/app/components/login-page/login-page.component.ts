@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {LoginDAO} from '../../models/LoginDAO';
-import {Observable} from 'rxjs';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {catchError} from 'rxjs/operators';
 import {LoginService} from '../../services/login.service';
 
 
@@ -52,6 +50,7 @@ export class LoginPageComponent implements OnInit {
     this.loginService.login(logindetails).subscribe((data: any) => {
       console.log(data);
       alert(data.message);
+      this.router.navigate([('/home')]);
     });
   }
   // ROUTE TO HOMEPAGE

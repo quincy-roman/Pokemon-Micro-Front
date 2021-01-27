@@ -2,6 +2,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PokenewsComponent } from './components/pokenews/pokenews.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import {LoginService} from './services/login.service';
+import {LoginPageComponent} from './components/login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -9,8 +12,16 @@ const routes: Routes = [
     component: PokenewsComponent
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'home',
+    component: HomepageComponent
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent
   }
 ];
 

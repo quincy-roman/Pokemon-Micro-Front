@@ -1,3 +1,4 @@
+import { GachaComponent } from './components/gacha/gacha.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     PokenewsComponent,
     RegisterComponent,
     LoginPageComponent,
-    HomepageComponent
+    HomepageComponent,
+    GachaComponent
 
   ],
   imports: [

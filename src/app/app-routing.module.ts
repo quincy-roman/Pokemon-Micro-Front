@@ -5,6 +5,7 @@ import { PokenewsComponent } from './components/pokenews/pokenews.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import {LoginService} from './services/login.service';
 import {LoginPageComponent} from './components/login-page/login-page.component';
+import { GachaComponent } from './components/gacha/gacha.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent
+  },
+  {
+    path:'gacha',
+    component:GachaComponent
   }
 ];
 

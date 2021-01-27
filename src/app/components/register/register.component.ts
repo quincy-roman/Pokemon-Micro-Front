@@ -1,6 +1,8 @@
+import { FormBuilder, FormControl } from '@angular/forms';
 import { Trainer } from './../../models/Trainer.model';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-register',
@@ -9,16 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private loginServ:LoginService) { }
+  constructor(private loginServ:LoginService,private form:FormBuilder) { }
 
   ngOnInit(): void {
   }
+  registerForm = this.form.group({
+    username: new FormControl(''),
+    password: new FormControl(''),
+    email: new FormControl('')
+  });
 
-  public trainer:Trainer = new Trainer(0,'','','',0);
   registerUser()
   {
+    const details = this.registerForm.value;
+    let trainer = new Trainer(0,details.email,details.password,details.username,0);
+    console.log(trainer);
 
-     this.loginServ.register(this.trainer).subscribe(data => {
+     this.loginServ.register(trainer).subscribe(data => {
      let id = data
      sessionStorage.setItem("trainerID",id.toString());
 

@@ -1,16 +1,16 @@
 export class Trainer {
 
-  id: number;
+  trainerId: number;
+  name: string;
   email: string;
   password: string;
-  username: string;
-  money: number;
+  poke: number;
 
-  constructor(id: number, email: string, password: string, username: string, money: number) {
-    this.id = id;
+  constructor(id: number, email: string, password: string, name: string, poke: number) {
+    this.trainerId = id;
     this.email = email;
     this.password = password;
-    this.username = username;
-    this.money = money;
+    this.name = name;
+    this.poke = poke;
   }
 }

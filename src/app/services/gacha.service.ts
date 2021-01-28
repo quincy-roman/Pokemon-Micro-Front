@@ -17,9 +17,17 @@ export class GachaService {
 
   rollgacha(numOfRolls:number):Observable<OwnedPokemon[]>
   {
-    let trainerId = 1;
-    let rollInfo = new TrainerRolls(trainerId,numOfRolls);
-    console.log(rollInfo)
-    return this.http.post<OwnedPokemon[]>(`http://localhost:8081/gacha/roll`,rollInfo);
+    let trainer = sessionStorage.getItem("userId");
+    if(trainer != null)
+    {
+      let trainerId = Number.parseInt(trainer);
+      let rollInfo = new TrainerRolls(trainerId,numOfRolls);
+      console.log(rollInfo)
+      return this.http.post<OwnedPokemon[]>(`http://localhost:8081/gacha/roll`,rollInfo);
+    }
+    else{
+      return new Observable<OwnedPokemon[]>();
+    }
+    
   }
 }

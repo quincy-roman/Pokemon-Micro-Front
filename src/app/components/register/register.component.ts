@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
      this.loginServ.register(trainer).subscribe(data => {
      let id = data
-     sessionStorage.setItem("trainerID",id.toString());
+     sessionStorage.setItem("userId",id.toString());
 
     //Route to navigation/home page
 

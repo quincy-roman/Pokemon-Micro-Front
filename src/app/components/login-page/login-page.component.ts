@@ -44,6 +44,7 @@ export class LoginPageComponent implements OnInit {
     const logindetails = new LoginDAO(details.username, details.password);
     this.loginService.login(logindetails).subscribe((data: any) => {
       console.log(data);
+      sessionStorage.setItem("userId",data);
       alert(data.message);
     });
     this.router.navigate([('/home')]).then(r => {});

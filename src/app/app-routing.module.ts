@@ -27,6 +27,11 @@ const routes: Routes = [
   {
     path:'gacha',
     component:GachaComponent
+  },
+  {
+    path:'',
+    component:LoginPageComponent,
+    pathMatch: 'full'
   }
 ];
 

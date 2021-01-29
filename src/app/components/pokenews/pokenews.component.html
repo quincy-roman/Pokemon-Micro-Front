@@ -11,46 +11,18 @@
 </section>
 
 <section id="main-section">
-    <button>Get PokeNews Hub RSS Data</button>
+    <button>Get Latest PokeNews Data</button>
     <div class="news-container">
-        <div class="news-item">
+        <div class="news-item" *ngFor="let newsfeed of newsFeeds; trackBy: trackItem;">
             <div class="news-item-left">
-                <span class="date-block">Date Written</span>
+                <span class="date-block">{{newsfeed.dateWritten}}</span>
             </div>
             <div class="news-item-right">
-                <h3>News Title</h3>
+                <h3>{{newsfeed.title}}</h3>
                 <br>
-                <span>Author</span><br>
-                <a href="http://google.com">Read More...</a>
-                <p>Keywords</p>
+                <span>{{newsfeed.author}}</span><br>
+                <a href="{{newsfeed.link}}">Read More...</a>
             </div>
         </div>
-
-        <div class="news-item">
-            <div class="news-item-left">
-                <span class="date-block">Date Written</span>
-            </div>
-            <div class="news-item-right">
-                <h3>News Title</h3>
-                <br>
-                <span>Author</span><br>
-                <a href="http://google.com">Read More...</a>
-                <p>Keywords</p>
-            </div>
-        </div>
-
-        <div class="news-item">
-            <div class="news-item-left">
-                <span class="date-block">Date Written</span>
-            </div>
-            <div class="news-item-right">
-                <h3>News Title</h3>
-                <br>
-                <span>Author</span><br>
-                <a href="http://google.com">Read More...</a>
-                <p>Keywords</p>
-            </div>
-        </div>
-        
     </div>
 </section>

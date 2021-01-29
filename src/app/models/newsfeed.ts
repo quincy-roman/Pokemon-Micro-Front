@@ -3,7 +3,7 @@ export class NewsFeed {
   title: string;
   type: string;
   author: string;
-  date: string;
+  dateWritten: string;
   link: string;
   keywords: string;
 
@@ -12,7 +12,7 @@ export class NewsFeed {
     title: string,
     type: string,
     author: string,
-    date: string,
+    dateWritten: string,
     link: string,
     keywords: string
   ) {
@@ -20,7 +20,7 @@ export class NewsFeed {
     this.title = title;
     this.type = type;
     this.author = author;
-    this.date = date;
+    this.dateWritten = dateWritten;
     this.link = link;
     this.keywords = keywords;
   }

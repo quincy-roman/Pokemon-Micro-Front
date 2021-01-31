@@ -6,6 +6,8 @@
 body {
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
+  height: 100vh;
+  overflow: hidden;
 }
 
 .card-signin {
@@ -108,6 +110,17 @@ body {
   color: white;
   background-color: #3b5998;
 }
+
+.main-title{
+  font-family: 'Pokemon Solid', sans-serif;
+  color: yellow;
+  -webkit-text-stroke: 1px #000000;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 3rem;
+  text-shadow: 5px 3px 2px #000000;
+}
+
 
 /* Fallback for Edge
 -------------------------------------------------- */

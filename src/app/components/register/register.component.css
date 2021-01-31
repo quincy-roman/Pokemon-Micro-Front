@@ -1,7 +1,49 @@
-.register-form{
-    margin-top: 10%;
-    padding: 30px;
-    background-color:darkslategray ;
-    color:white;
-    border-radius: 10px;
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
 }
+
+body {
+  background: #c8100b;
+  background: linear-gradient(to right, #6f0b00, #c8100b);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.register-form {
+  margin-top: 10%;
+  padding: 30px;
+  color: white;
+  border-radius: 10px;
+}
+
+.form-control:focus{
+    border-color: #ef834e;
+    box-shadow: 0 0 0 0.2rem rgb(240 131 99 / 25%);
+}
+
+.btn-primary {
+    background-color: #ef834e;
+    border-color: #ef834e;
+}
+
+.btn-primary:focus{
+    border-color: #6f0b00;
+    box-shadow: 0 0 0 0.2rem rgb(200 16 11 / 25%);
+}
+
+.my-btn:active {
+    background-color: #c8100b !important;
+    border-color: #c8100b !important;
+}
+
+.main-title{
+    font-family: 'Pokemon Solid', sans-serif;
+    color: yellow;
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    line-height: 1.5;
+    text-shadow: 5px 0px 9px #353333;
+  }

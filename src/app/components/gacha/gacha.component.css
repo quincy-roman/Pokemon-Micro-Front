@@ -1,0 +1,76 @@
+body {
+  background: url(https://i.imgur.com/qPomXl4.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  color: black;
+}
+a{
+    color: black;
+    transition: 0.4s ease-in-out;
+}
+a:hover{
+    color:#3d33b3;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px 30px 20px;
+}
+
+.title{
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Pokemon Solid', sans-serif;
+  -webkit-text-stroke: 2px #3d33b3;
+  letter-spacing: 5px;
+  color: yellow;
+  text-anchor: center;
+}
+p{
+    font-size: 1.2rem;
+}
+
+.roll-btn{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: 0.4s ease-in-out;
+}
+.roll-btn:hover{
+    color: white;
+    background-color: #3d33b3;
+}
+
+.roll-btn:focus, .roll-btn:active{
+    border-color: #000000;
+    color: black;
+    background-color: rgb(245, 245, 128);
+    box-shadow: 0 0 0 0.2rem rgb(255 213 16 / 25%);
+}
+
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    
+}
+.results img{
+    margin-bottom: 10px;
+}
+
+.results h3{
+    margin-top: 10px;
+    font-size: 1.5rem;
+}

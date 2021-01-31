@@ -1,2 +1,12 @@
-
-<button (click)="roll()">Roll Here!</button>
+<body>
+    <header class="top-bar">
+        <span class="title">Pokemon Gacha Life</span>
+        <span><a href="/home">Return to Homepage</a></span>
+    </header>
+    <p class="roll">Instructions: Roll die to get a random pokemon.</p>
+    <button (click)="roll()" class="roll-btn">Roll Here!</button>
+    <div class="results">
+        <img id="result-img" src="https://i.imgur.com/4bZDOqo.png" alt="pokemon-front-sprite">
+        <h3>Congratulations! You got <span id="result-name">(pokemon-name goes here)</span>.</h3>
+    </div>
+</body>

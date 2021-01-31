@@ -1,7 +1,7 @@
 <section id="start-section">
     <div class="left">
         <h1>Welcome to the PokeNews Hub!</h1>
-        <p>Click the button to get started!</p>
+        <p class="info">Please check out any of our news articles listed here, or click the button to get the lastest news NOW!</p>
     </div>
     <div class="right">
         <p class="username">Hello, User</p>
@@ -11,7 +11,7 @@
 </section>
 
 <section id="main-section">
-    <button>Get Latest PokeNews Data</button>
+    <button id="rss-btn">Get Latest PokeNews Data</button>
     <div class="news-container">
         <div class="news-item" *ngFor="let newsfeed of newsFeeds; trackBy: trackItem;">
             <div class="news-item-left">

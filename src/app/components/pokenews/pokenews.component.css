@@ -1,7 +1,7 @@
 h1{
     font-family: "Pokemon Solid", sans-serif;
     color: yellow;
-    -webkit-text-stroke: 0.5px black;
+    -webkit-text-stroke: 1px #000000;
     letter-spacing: 2.5px;
     line-height: 2;
     font-size: 2rem;
@@ -89,4 +89,35 @@ img{
     display: block;
     float: left;
     margin-left: 30px;
+}
+
+.info{
+    text-align: center;
+    margin: 0 auto;
+}
+
+#rss-btn{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+    background-color: yellow;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#rss-btn:hover{
+    color: white;
+    background-color: #3d33b3;
+}
+
+#rss-btn:focus, #rss-btn:active{
+    border-color: #000000;
+    color: black;
+    background-color: rgb(245, 245, 128);
+    box-shadow: 0 0 0 0.2rem rgb(255 213 16 / 25%);
 }

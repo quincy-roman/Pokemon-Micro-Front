@@ -15,6 +15,7 @@ h1{
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    border-bottom: 5px solid #000000;
 }
 
 .left{
@@ -28,6 +29,7 @@ h1{
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    color: white;
 }
 
 img{
@@ -94,6 +96,7 @@ img{
 .info{
     text-align: center;
     margin: 0 auto;
+    color: white;
 }
 
 #rss-btn{

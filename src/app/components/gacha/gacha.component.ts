@@ -21,7 +21,7 @@ export class GachaComponent implements OnInit {
 public rolledPokemon: OwnedPokemon[] = [];
 
 // tslint:disable-next-line: member-ordering
-public sprite: string;
+public sprite: any;
 public num: number;
 
 static setSubscribeData(data):any{
@@ -57,8 +57,7 @@ roll()
         this.rolledPokemon = data;
         this.sprite = '';
         console.log('azhya...', GachaComponent.subscribeData[0].species);
-        const str = this.getFrontSprite(GachaComponent.subscribeData[0].species);
-        this.sprite = str;
+         this.getFrontSprite(GachaComponent.subscribeData[0].species);
         console.log();
         console.log(this.rolledPokemon);
         this.changeDetect.detectChanges();
@@ -74,7 +73,7 @@ public trackItem(index: number, item: OwnedPokemon) {
   return `${item.pokemonId}-${index}`;
 }
 
-getFrontSprite(name: string): string{
+getFrontSprite(name: string){
   console.log(`Name of RolledPokemon ID: ${name}`);
   // tslint:disable-next-line: no-var-keyword
   this.gachaServ.getSprite(name).subscribe(
@@ -94,7 +93,7 @@ getFrontSprite(name: string): string{
   setTimeout(() => {
     url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.num}.svg`;
     console.log(url);
+    this.sprite = url;
   }, 1000);
-  return url;
 }
 }

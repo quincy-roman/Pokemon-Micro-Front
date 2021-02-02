@@ -40,4 +40,9 @@ export class GachaService {
     }
 
   }
+
+  // tslint:disable-next-line: typedef
+  getSprite(name: string): Observable<string>{
+    return this.http.get<string>(`https://pokeapi.co/api/v2/pokemon/${name}`, this.httpOptions);
+  }
 }

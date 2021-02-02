@@ -26,7 +26,7 @@ export class LoginService {
 
 
   register(trainer: Trainer): Observable<number> {
-    return this.http.post<number>(`${environment.BASE_URL}/register`, trainer);
+    return this.http.post<number>(`${environment.BASE_URL}/login/register`, trainer);
   }
 
   login(loginDAO: LoginDAO): Observable<any> {
@@ -46,7 +46,7 @@ export class LoginService {
   getTrainer():Observable<Trainer>
   {
     let id = parseInt(sessionStorage.getItem("userId"));
-    return this.http.get<Trainer>(`${environment.BASE_URL}/trainer/${id}`,this.httpOptions)
+    return this.http.get<Trainer>(`${environment.BASE_URL}/login/trainer/${id}`,this.httpOptions)
   }
 
   // tslint:disable-next-line: typedef

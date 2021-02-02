@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  BASE_URL: `http://localhost:8081/`,
-  loginServerURL: "http://localhost:8080",
-  newsServerURL: 'http://localhost:8082'
+  BASE_URL: `http://localhost:8080`,
+  // loginServerURL: "http://localhost:8080",
+  // newsServerURL: 'http://localhost:8082'
 };
 
 /*

@@ -12,6 +12,7 @@
 
 <section id="main-section">
     <button id="rss-btn">Get Latest PokeNews Data</button>
+    <button id="home-btn" (click)="returnHome()">Return to Homepage</button>
     <div class="news-container">
         <div class="news-item" *ngFor="let newsfeed of newsFeeds; trackBy: trackItem;">
             <div class="news-item-left">
@@ -21,7 +22,7 @@
                 <h3>{{newsfeed.title}}</h3>
                 <br>
                 <span>{{newsfeed.author}}</span><br>
-                <a href="{{newsfeed.link}}">Read More...</a>
+                <a class="read-link" href="{{newsfeed.link}}">Read More...</a>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ import { NewsfeedService } from './../../services/newsfeed.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewsFeed } from 'src/app/models/newsfeed';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokenews',
@@ -13,7 +14,7 @@ export class PokenewsComponent implements OnInit {
   newsFeeds: NewsFeed[];
   public newsFeed: Observable<NewsFeed>;
 
-  constructor(private service: NewsfeedService, private changeDetect: ChangeDetectorRef) {
+  constructor(private service: NewsfeedService, private changeDetect: ChangeDetectorRef, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -32,5 +33,9 @@ export class PokenewsComponent implements OnInit {
       console.log(this.newsFeeds);
       console.log('Data has been gathered successfully!');
     });
+  }
+
+  public returnHome(): void{
+    this.router.navigate(['/home']);
   }
 }

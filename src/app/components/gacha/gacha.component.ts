@@ -1,6 +1,7 @@
 import { GachaService } from './../../services/gacha.service';
 import { OwnedPokemon } from './../../models/OwnedPokemon.model';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gacha',
@@ -9,20 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GachaComponent implements OnInit {
 
-  constructor(private gachaServ:GachaService) { }
+  constructor(private gachaServ: GachaService, private changeDetect: ChangeDetectorRef) { }
 
 
 
   ngOnInit(): void {
   }
 
-public rolledPokemon:OwnedPokemon[] = [];
+// tslint:disable-next-line: member-ordering
+public rolledPokemon: OwnedPokemon[] = [];
+
+// tslint:disable-next-line: member-ordering
+public sprite: string;
 
 roll()
 {
   this.gachaServ.rollgacha(1).subscribe(
     data => {
-      this.rolledPokemon=data
+      this.rolledPokemon = data;
+      this.changeDetect.detectChanges();
+      this.sprite = '';
+      this.sprite = this.getFrontSprite(this.rolledPokemon[0].pokemonId);
+      console.log(JSON.stringify(this.sprite));
       console.log(this.rolledPokemon);
 
     }
@@ -30,6 +39,14 @@ roll()
 
 }
 
+// tslint:disable-next-line: typedef
+public trackItem(index: number, item: OwnedPokemon) {
+  return `${item.pokemonId}-${index}`;
+}
 
-
+getFrontSprite(id: number): string{
+  console.log(`Name of RolledPokemon ID: ${id}`);
+  // tslint:disable-next-line: max-line-length
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+}
 }

@@ -1,8 +1,9 @@
 import { NewsFeed } from 'src/app/models/newsfeed';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -22,6 +23,13 @@ export class NewsfeedService {
   };
 
   getAllNewsFeeds(): Observable<NewsFeed[]> {
-    return this.http.get<NewsFeed[]>(`${environment.newsServerURL}/news/view/all`, this.httpOptions);
+    return this.http.get<NewsFeed[]>(`${environment.BASE_URL}/news/view/all`, this.httpOptions)
+    .pipe(catchError(this.errorHandler))
+    ;
+  }
+
+  // tslint:disable-next-line: typedef
+  errorHandler(error: HttpErrorResponse) {
+    return throwError(`POKENEWSFEED_ERROR STATUS CODE ${error.status}: ${error.message}`);
   }
 }

@@ -1,3 +1,5 @@
+import { Trainer } from './../../models/Trainer.model';
+import { LoginService } from './../../services/login.service';
 import { GachaService } from './../../services/gacha.service';
 import { OwnedPokemon } from './../../models/OwnedPokemon.model';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
@@ -15,7 +17,7 @@ export class GachaComponent implements OnInit {
   public apiId: string;
   static pic: any;
 
-  constructor(private gachaServ: GachaService, private changeDetect: ChangeDetectorRef, private http: HttpClient) { }
+  constructor(private gachaServ: GachaService, private changeDetect: ChangeDetectorRef, private http: HttpClient, private loginServ:LoginService) { }
 
 // tslint:disable-next-line: member-ordering
 public rolledPokemon: OwnedPokemon[] = [];
@@ -23,6 +25,7 @@ public rolledPokemon: OwnedPokemon[] = [];
 // tslint:disable-next-line: member-ordering
 public sprite: any;
 public num: number;
+public poke:number = 0;
 
 static setSubscribeData(data):any{
   GachaComponent.subscribeData = data;
@@ -46,6 +49,7 @@ static getURL():string{
 
 
   ngOnInit(): void {
+    this.getTrainerPoke();
   }
 
 roll()
@@ -96,4 +100,17 @@ getFrontSprite(name: string){
     this.sprite = url;
   }, 1000);
 }
+
+getTrainerPoke()
+{
+  let t = new Trainer(0,"","","",0);
+  this.loginServ.getTrainer().subscribe(
+    data =>{
+      t = data;
+      this.poke = t.poke;
+    }
+  )
+}
+
+
 }

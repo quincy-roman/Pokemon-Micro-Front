@@ -3,6 +3,7 @@
         <span class="title">Pokemon Gacha Life</span>
         <span><a href="/home">Return to Homepage</a></span>
     </header>
+    <p>Your Poke: {{ poke }}</p>
     <p class="roll">Instructions: Roll die to get a random pokemon.</p>
     <button (click)="roll()" class="roll-btn">Roll Here!</button>
     <div class="results" *ngFor="let pokemon of rolledPokemon; trackBy: trackItem;">

@@ -43,6 +43,12 @@ export class LoginService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getTrainer():Observable<Trainer>
+  {
+    let id = parseInt(sessionStorage.getItem("userId"));
+    return this.http.get<Trainer>(`${environment.BASE_URL}/trainer/${id}`,this.httpOptions)
+  }
+
   // tslint:disable-next-line: typedef
   errorHandler(error: HttpErrorResponse) {
     return throwError(`LOGIN_ERROR: ${error.message}`);

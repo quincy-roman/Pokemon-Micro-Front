@@ -17,7 +17,10 @@ export class GachaComponent implements OnInit {
   public apiId: string;
   static pic: any;
 
-  constructor(private gachaServ: GachaService, private changeDetect: ChangeDetectorRef, private http: HttpClient, private loginServ:LoginService) { }
+  constructor(private gachaServ: GachaService, 
+              private changeDetect: ChangeDetectorRef, 
+              private http: HttpClient, 
+              private loginServ:LoginService) { }
 
 // tslint:disable-next-line: member-ordering
 public rolledPokemon: OwnedPokemon[] = [];

@@ -5,6 +5,7 @@ import { OwnedPokemon } from './../../models/OwnedPokemon.model';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-gacha',
@@ -66,7 +67,7 @@ roll()
         console.log(this.rolledPokemon);
         this.changeDetect.detectChanges();
         this.getTrainerPoke();
-      }, 20);
+      }, 5);
 
     }
   )
@@ -111,6 +112,7 @@ getTrainerPoke()
     }
   )
 }
+
 
 
 }

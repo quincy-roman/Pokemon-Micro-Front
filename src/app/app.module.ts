@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import {InterceptorService} from './services/interceptor.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {InterceptorService} from './services/interceptor.service';
     RegisterComponent,
     LoginPageComponent,
     HomepageComponent,
-    GachaComponent
+    GachaComponent,
+    NavbarComponent
 
   ],
   imports: [

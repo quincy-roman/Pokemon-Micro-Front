@@ -65,7 +65,8 @@ roll()
         console.log();
         console.log(this.rolledPokemon);
         this.changeDetect.detectChanges();
-      }, 5000);
+        this.getTrainerPoke();
+      }, 20);
 
     }
   )
@@ -90,15 +91,14 @@ getFrontSprite(name: string){
       console.log('this is hello ' + this.num);
       console.log('2!! Pokemon id...' + GachaComponent.apiData.id);
       console.log(`New id is: ${GachaComponent.apiData.id}`);
+      let url;
+      url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.num}.svg`;
+      console.log(url);
+      this.sprite = url;
     }
   );
   // tslint:disable-next-line: max-line-length
-  let url;
-  setTimeout(() => {
-    url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.num}.svg`;
-    console.log(url);
-    this.sprite = url;
-  }, 1000);
+
 }
 
 getTrainerPoke()

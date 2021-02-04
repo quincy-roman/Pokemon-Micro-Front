@@ -1,0 +1,27 @@
+<nav class="nav flex-column navbar">
+
+    <!-- Homepage link -->
+    <a class="nav-item nav-link home-link" href="/home"><img
+        src="https://i.imgur.com/0DtwRiT.png"
+        alt="pokeball" width="50" height="50">
+      <span class="home-btn">Pokemon Microservices | Home Menu</span>
+    </a>
+    
+    <!-- Links to the other services -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-item nav-link" href="/gacha">Roll!</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-item nav-link" href="/news">PokeNews</a>
+        </li>
+    </ul>
+
+    <!-- User information -->
+    <div>
+        <h3>{{user.name}}</h3>
+        <h3>{{user.poke}}</h3>
+        <!-- Maybe show the sprites of their current party -->
+    </div>
+
+</nav>

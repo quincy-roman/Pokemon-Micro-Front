@@ -6,6 +6,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import {LoginService} from './services/login.service';
 import {LoginPageComponent} from './components/login-page/login-page.component';
 import { GachaComponent } from './components/gacha/gacha.component';
+import { PcPageComponent } from './components/pc-page/pc-page.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'gacha',
     component:GachaComponent
+  },
+  {
+    path: 'pc',
+    component: PcPageComponent
   },
   {
     path:'',

@@ -1,3 +1,4 @@
+import { OwnedPokemon } from './../../models/OwnedPokemon.model';
 import { PcService } from './../../services/pc.service';
 import { Component, OnInit } from '@angular/core';
 import { PcBox } from 'src/app/models/pc-box';
@@ -8,7 +9,10 @@ import { PcBox } from 'src/app/models/pc-box';
   styleUrls: ['./pc-page.component.css']
 })
 export class PcPageComponent implements OnInit {
+
   boxes: PcBox[];
+  selectedBox: PcBox;
+  selectedPokemon: OwnedPokemon;
 
   constructor(private pcService: PcService) { }
 
@@ -24,6 +28,10 @@ export class PcPageComponent implements OnInit {
         this.boxes = data;
       }
     )
+  }
+
+  public onSelect(box: PcBox){
+    this.selectedBox=box;
   }
 
 }

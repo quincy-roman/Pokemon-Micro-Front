@@ -90,9 +90,9 @@ mat-grid-tile {
     padding-right: 20px;
     padding-bottom: 20px;
   }
-  [class*='col-']:last-of-type {
+  /* [class*='col-']:last-of-type {
     padding-right: 0;
-  }
+  } */
   a {
     text-decoration: none;
   }

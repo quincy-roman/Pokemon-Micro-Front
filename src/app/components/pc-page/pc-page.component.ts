@@ -1,3 +1,4 @@
+import { Team } from './../../models/team';
 import { OwnedPokemon } from './../../models/OwnedPokemon.model';
 import { PcService } from './../../services/pc.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,11 +14,15 @@ export class PcPageComponent implements OnInit {
   boxes: PcBox[];
   selectedBox: PcBox;
   selectedPokemon: OwnedPokemon;
+  team: Team;
+  pokeFromBox: boolean;
 
   constructor(private pcService: PcService) { }
 
   ngOnInit(): void {
+    // change trainerId to pull from storage after testing
     this.getBoxesForTrainer(1)
+    this.getTeamForTrainer(1)
   }
 
   public getBoxesForTrainer(trainerId: number) {
@@ -30,8 +35,41 @@ export class PcPageComponent implements OnInit {
     )
   }
 
-  public onSelect(box: PcBox){
+  public getTeamForTrainer(trainerId: number){
+    this.pcService.getTeamByTrainer(trainerId)
+    .subscribe(
+      data => {
+        console.log(data)
+        this.team = data
+      }
+    )
+  }
+
+  public transferToTeam(teamId: number, pokemonId: number){
+    console.log("Transfer to team button clicked")
+    console.log(`Team: ${teamId}`)
+    console.log(`Pokemon: ${pokemonId}`)
+    this.pcService.transferToTeam(teamId, pokemonId)
+  }
+
+  public transferToBox(boxId: number, pokemonId: number){
+    // this.pcService.transferToBox(boxId, pokemonId)
+  }
+
+  public selectBox(box: PcBox){
     this.selectedBox=box;
+  }
+
+  public selectPokemon(poke: OwnedPokemon){
+    this.selectedPokemon=poke;
+  }
+
+  public selectFromBox(){
+    this.pokeFromBox = true;
+  }
+
+  public selectOutsideBox(){
+    this.pokeFromBox = false;
   }
 
 }

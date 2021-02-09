@@ -25,7 +25,7 @@ import { PcPageComponent } from './components/pc-page/pc-page.component';
     HomepageComponent,
     GachaComponent,
     NavbarComponent,
-    PcPageComponent
+    PcPageComponent,
 
   ],
   imports: [

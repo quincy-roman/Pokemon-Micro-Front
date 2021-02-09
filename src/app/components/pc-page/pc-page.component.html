@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let box of boxes" (click)=onSelect(box)>
+                <tr *ngFor="let box of boxes" (click)=selectBox(box)>
                     <td>{{box.name}}</td>
                 </tr>
             </tbody>
@@ -21,7 +21,7 @@
             <div class="centered">
                 <h3>Pokemon in {{selectedBox.name}}</h3>
             </div>
-            <a class="col-1-4" *ngFor = "let poke of selectedBox.pokemon">
+            <a class="col-1-4" *ngFor = "let poke of selectedBox.pokemon" (click)="selectPokemon(poke); selectFromBox()">
                 <div class="module">
                     <h4>
                         {{poke.pokemonId}}
@@ -37,8 +37,45 @@
      </div >
      <div id="aside">
         Selected Pokemon
+        <div *ngIf="selectedPokemon">
+
+            <!-- Placeholder stats, to be modified later-->
+            <div>
+                ID : {{selectedPokemon.pokemonId}}
+            </div>
+            <div>
+                Nickname : {{selectedPokemon.nickname}}
+            </div>
+            <div>
+                Status : {{selectedPokemon.status}}
+            </div>
+            <div>
+                Current HP : {{selectedPokemon.currentHp}}
+            </div>
+            <div *ngIf="pokeFromBox; else otherButton">
+                <button type="button" (click)="transferToTeam(team.teamId, selectedPokemon.pokemonId)">Transfer to Team</button>
+            </div>
+            <ng-template #otherButton>
+                <button type="button" (click)="transferToBox(selectedBox.boxId, selectedPokemon.pokemonId)">Transfer to Box</button>
+            </ng-template>
+
+        </div>
+        
      </div>
      <div id="footer">
-        Your team
+         <div class="module col-1-4">
+             Trainer: {{team.trainer.name}}
+             Poke: {{team.trainer.poke}}
+         </div>
+        <!-- Your team -->
+
+        <a class="col-1-4" *ngFor = "let poke of team.pokemon" (click)="selectPokemon(poke); selectOutsideBox()">
+            <div class="module">
+                <h4>
+                    {{poke.pokemonId}}
+                </h4>
+            </div>
+        </a>
+        
      </div>
  </div>

@@ -10,6 +10,7 @@ import { Team } from '../models/team';
 export class PcService {
 
 
+
   
 
   pcDevURL : string = "http://localhost:8084/pc"
@@ -38,17 +39,13 @@ export class PcService {
   }
 
   transferToTeam(teamId: number, pokemonId: number): Observable<String> {
-    // const params = new HttpParams()
-    //   .set('teamId', `${teamId}`)
-    //   .set('pokemonId', `${pokemonId}`);
-    // console.log(params.toString())
-    // var body = {'teamId' : teamId}
     console.log("within PC service transferToTeam Method");
-    const body = {"teamId" : teamId}
-    console.log(body)
-    return this.http.put<any>(`${this.pcDevURL}/removePokemon/${pokemonId}`, body, this.httpOptions)
+    return this.http.put<any>(`${this.pcDevURL}/removePokemon/${pokemonId}`, teamId, this.httpOptions)
+  }
 
-    // return this.http.put<any>(`${this.pcDevURL}/removePokemon/${pokemonId}`, teamId,  this.httpOptions)
+  transferToBox(boxId: number, pokemonId: number) {
+    console.log("within PC service transferToTeam method")
+    return this.http.put<String>(`${this.pcDevURL}/addPokemon/${pokemonId}`, boxId, this.httpOptions)
   }
 
 }

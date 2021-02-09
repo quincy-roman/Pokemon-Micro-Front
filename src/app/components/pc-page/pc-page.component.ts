@@ -50,10 +50,23 @@ export class PcPageComponent implements OnInit {
     console.log(`Team: ${teamId}`)
     console.log(`Pokemon: ${pokemonId}`)
     this.pcService.transferToTeam(teamId, pokemonId)
+    .subscribe(
+      data => {
+        console.log(data)
+      }
+    )
   }
 
   public transferToBox(boxId: number, pokemonId: number){
-    // this.pcService.transferToBox(boxId, pokemonId)
+    console.log("Transfer to box button clicked")
+    console.log(`Box: ${boxId}`)
+    console.log(`Pokemon: ${pokemonId}`)
+    this.pcService.transferToBox(boxId, pokemonId)
+    .subscribe(
+      data => {
+        console.log(data)
+      }
+    )
   }
 
   public selectBox(box: PcBox){

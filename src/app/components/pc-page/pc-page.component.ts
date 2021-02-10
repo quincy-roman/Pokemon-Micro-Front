@@ -1,3 +1,4 @@
+import { GachaService } from './../../services/gacha.service';
 import { Team } from './../../models/team';
 import { OwnedPokemon } from './../../models/OwnedPokemon.model';
 import { PcService } from './../../services/pc.service';
@@ -18,7 +19,12 @@ export class PcPageComponent implements OnInit {
   pokeFromBox: boolean;
   activeBoxId: number;
 
-  constructor(private pcService: PcService) { }
+  apiData: any;
+  num: number;
+  sprite: any;
+
+  constructor(private pcService: PcService,
+              private gachaService: GachaService) { }
 
   ngOnInit(): void {
     // change trainerId to pull from storage after testing
@@ -65,6 +71,7 @@ export class PcPageComponent implements OnInit {
         this.getBoxesForTrainer(1)
       }
     )
+    this.selectedPokemon=null;
   }
 
   public transferToBox(boxId: number, pokemonId: number){
@@ -78,6 +85,21 @@ export class PcPageComponent implements OnInit {
         this.getTeamForTrainer(1)
         this.activeBoxId = boxId;
         this.getBoxesForTrainer(1)
+      }
+    )
+    this.selectedPokemon=null;
+  }
+
+  public getPokeSprite(name: string){
+    this.gachaService.getSprite(name).subscribe(
+      d => {
+        this.apiData = d;
+        this.num = this.apiData.id;
+        // console.log(this.apiData)
+        // console.log(this.num)
+        let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.num}.svg`;
+        this.sprite=url
+        // console.log(this.sprite)
       }
     )
   }
@@ -95,6 +117,7 @@ export class PcPageComponent implements OnInit {
   }
 
   public selectPokemon(poke: OwnedPokemon){
+    this.getPokeSprite(poke.species)
     this.selectedPokemon=poke;
   }
 

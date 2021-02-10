@@ -52,6 +52,19 @@ mat-grid-tile {
     background: lightcoral
 }
 
+#display-pokemon {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+#pokemon-container {
+  width: 220px;
+  height: 200px;
+  /* background-color: aqua; */
+  text-align: center;
+}
+
 .option{
   background-color: cornflowerblue;
 }

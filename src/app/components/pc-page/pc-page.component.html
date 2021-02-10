@@ -40,8 +40,14 @@
         <div *ngIf="selectedPokemon">
 
             <!-- Placeholder stats, to be modified later-->
+            <div *ngIf="sprite" id = pokemon-container>
+                <img id="display-pokemon" src="{{sprite}}">
+            </div>
             <div>
                 ID : {{selectedPokemon.pokemonId}}
+            </div>
+            <div>
+                Species : {{selectedPokemon.species}}
             </div>
             <div>
                 Nickname : {{selectedPokemon.nickname}}

@@ -35,6 +35,16 @@ export class PokenewsComponent implements OnInit {
     });
   }
 
+  // public refreshNews(): void{
+  //   this.service.refreshNewsFeeds().subscribe(data =>
+  //     setTimeout(() =>{
+  //       this.newsFeeds = data;
+  //       this.changeDetect.detectChanges();
+  //       console.log(this.newsFeeds);
+  //       console.log('Refresh was successful!');
+  //     }, 5000));
+  // }
+
   public returnHome(): void{
     this.router.navigate(['/home']);
   }

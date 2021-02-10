@@ -1,17 +1,17 @@
 <section id="start-section">
     <div class="left">
         <h1>Welcome to the PokeNews Hub!</h1>
-        <p class="info">Please check out any of our news articles listed here, or click the button to get the lastest news NOW!</p>
+        <p class="info">Get started by checking out any of our news articles listed here!</p>
     </div>
     <div class="right">
-        <p class="username">Hello, User</p>
+        <p class="username">Hello, User!</p>
         <img class="bell" src="./../../../assets/images/bell.png" alt="bell-icon" width="25" height="25">
         <span class="red-dot off"></span>
     </div>
 </section>
 
 <section id="main-section">
-    <button id="rss-btn">Get Latest PokeNews Data</button>
+    <button id="home-btn">Get Latest News!</button>
     <button id="home-btn" (click)="returnHome()">Return to Homepage</button>
     <div class="news-container">
         <div class="news-item" *ngFor="let newsfeed of newsFeeds; trackBy: trackItem;">

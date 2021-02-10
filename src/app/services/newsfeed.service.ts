@@ -10,11 +10,25 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NewsfeedService {
+  user = "Bob";
+
   constructor(private http: HttpClient) { }
+
   httpOptions = {
     headers: new HttpHeaders(
       {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*/*',
+        'Access-Control-Allow-Methods': 'OPTIONS, HEAD, GET, POST, PUT, PATCH, DELETE',
+        'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type'
+      }
+    )
+  };
+
+  plainTextOptions = {
+    headers: new HttpHeaders(
+      {
+        'Content-Type': 'text',
         'Access-Control-Allow-Origin': '*/*',
         'Access-Control-Allow-Methods': 'OPTIONS, HEAD, GET, POST, PUT, PATCH, DELETE',
         'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type'
@@ -28,8 +42,16 @@ export class NewsfeedService {
     ;
   }
 
+  refreshNewsFeeds(): Observable<NewsFeed[]> {
+    return this.http.get<NewsFeed[]>(`${environment.BASE_URL}/news/view/feed`, this.plainTextOptions)
+    .pipe(catchError(this.errorHandler))
+    ;
+  }
+
   // tslint:disable-next-line: typedef
   errorHandler(error: HttpErrorResponse) {
     return throwError(`POKENEWSFEED_ERROR STATUS CODE ${error.status}: ${error.message}`);
   }
 }
+
+

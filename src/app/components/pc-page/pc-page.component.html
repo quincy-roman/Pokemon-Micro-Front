@@ -11,7 +11,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let box of boxes" (click)=selectBox(box)>
-                    <td>{{box.name}}</td>
+                    <td class="option">{{box.name}}</td>
                 </tr>
             </tbody>
         </table>
@@ -63,13 +63,13 @@
         
      </div>
      <div id="footer" *ngIf="team">
-         <div class="module col-1-4">
+         <div class="col-1-4 trainer">
              Trainer: {{team.trainer.name}}
              Poke: {{team.trainer.poke}}
          </div>
         <!-- Your team -->
 
-        <a class="col-1-4" *ngFor = "let poke of team.pokemon" (click)="selectPokemon(poke); selectOutsideBox()">
+        <a class="col-1-6" *ngFor = "let poke of team.pokemon" (click)="selectPokemon(poke); selectOutsideBox()">
             <div class="module">
                 <h4>
                     {{poke.pokemonId}}

@@ -16,6 +16,7 @@ export class PcPageComponent implements OnInit {
   selectedPokemon: OwnedPokemon;
   team: Team;
   pokeFromBox: boolean;
+  activeBoxId: number;
 
   constructor(private pcService: PcService) { }
 
@@ -32,6 +33,10 @@ export class PcPageComponent implements OnInit {
         console.log("Get boxes for trainer called")
         console.log(data)
         this.boxes = data;
+        if (!this.activeBoxId){
+          this.activeBoxId = this.boxes[0].boxId
+        }
+        this.selectBoxById(this.activeBoxId)
       }
     )
   }
@@ -56,6 +61,7 @@ export class PcPageComponent implements OnInit {
       data => {
         console.log(data)
         this.getTeamForTrainer(1)
+        this.activeBoxId = this.selectedBox.boxId;
         this.getBoxesForTrainer(1)
       }
     )
@@ -70,10 +76,8 @@ export class PcPageComponent implements OnInit {
       data => {
         console.log(data)
         this.getTeamForTrainer(1)
+        this.activeBoxId = boxId;
         this.getBoxesForTrainer(1)
-        this.selectBoxById(boxId)
-        console.log(this.selectedBox)
-        
       }
     )
   }

@@ -17,7 +17,7 @@
         </table>
      </div>
      <div id="main">
-        <div *ngIf="selectedBox; else directionBlock">
+        <div *ngIf="selectedBox">
             <div class="centered">
                 <h3>Pokemon in {{selectedBox.name}}</h3>
             </div>
@@ -30,9 +30,9 @@
             </a>
         </div>
 
-        <ng-template #directionBlock>
+        <!-- <ng-template #directionBlock>
             <h4 class="centered">Please select a box</h4>
-        </ng-template>
+        </ng-template> -->
 
      </div >
      <div id="aside">

@@ -62,7 +62,7 @@
         </div>
         
      </div>
-     <div id="footer">
+     <div id="footer" *ngIf="team">
          <div class="module col-1-4">
              Trainer: {{team.trainer.name}}
              Poke: {{team.trainer.poke}}

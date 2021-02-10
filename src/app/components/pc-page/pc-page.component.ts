@@ -29,6 +29,7 @@ export class PcPageComponent implements OnInit {
     this.pcService.getBoxesByTrainer(trainerId)
     .subscribe(
       data => {
+        console.log("Get boxes for trainer called")
         console.log(data)
         this.boxes = data;
       }
@@ -39,6 +40,7 @@ export class PcPageComponent implements OnInit {
     this.pcService.getTeamByTrainer(trainerId)
     .subscribe(
       data => {
+        console.log("Get team for trainer called")
         console.log(data)
         this.team = data
       }
@@ -53,6 +55,8 @@ export class PcPageComponent implements OnInit {
     .subscribe(
       data => {
         console.log(data)
+        this.getTeamForTrainer(1)
+        this.getBoxesForTrainer(1)
       }
     )
   }
@@ -65,12 +69,25 @@ export class PcPageComponent implements OnInit {
     .subscribe(
       data => {
         console.log(data)
+        this.getTeamForTrainer(1)
+        this.getBoxesForTrainer(1)
+        this.selectBoxById(boxId)
+        console.log(this.selectedBox)
+        
       }
     )
   }
 
   public selectBox(box: PcBox){
     this.selectedBox=box;
+  }
+
+  public selectBoxById(boxId: number){
+    this.boxes.forEach(box => {
+      if (box.boxId == boxId){
+        this.selectedBox=box;
+      }
+    });
   }
 
   public selectPokemon(poke: OwnedPokemon){

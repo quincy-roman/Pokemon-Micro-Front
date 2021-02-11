@@ -52,7 +52,7 @@ mat-grid-tile {
     background: lightcoral
 }
 
-#display-pokemon {
+.display-pokemon {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;

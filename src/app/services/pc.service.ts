@@ -3,18 +3,12 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PcBox } from '../models/pc-box';
 import { Team } from '../models/team';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PcService {
-
-
-
-  
-
-  pcDevURL : string = "http://localhost:8084/pc"
-  teamDevURL : string = "http://localhost:8084/team"
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,25 +21,28 @@ export class PcService {
 
   constructor(private http: HttpClient) { }
 
+  updateBoxes(trainerId: number) {
+    return this.http.put<any>(`${environment.BASE_URL}/pc/updateBoxes/${trainerId}`, this.httpOptions)
+  }
 
   getBoxesByTrainer(trainerId: number): Observable<PcBox[]> {
     // future: change trainerId from input param to pulling from session storage
-    return this.http.get<PcBox[]>(`${this.pcDevURL}/retrieve/${trainerId}`, this.httpOptions)
+    return this.http.get<PcBox[]>(`${environment.BASE_URL}/pc/retrieve/${trainerId}`, this.httpOptions)
   }
 
   getTeamByTrainer(trainerId: number): Observable<Team> {
     // future: change trainerId from input param to pulling from session storage
-    return this.http.get<Team>(`${this.teamDevURL}/${trainerId}`, this.httpOptions)
+    return this.http.get<Team>(`${environment.BASE_URL}/pc/team/${trainerId}`, this.httpOptions)
   }
 
   transferToTeam(teamId: number, pokemonId: number): Observable<String> {
     console.log("within PC service transferToTeam Method");
-    return this.http.put<any>(`${this.pcDevURL}/removePokemon/${pokemonId}`, teamId, this.httpOptions)
+    return this.http.put<any>(`${environment.BASE_URL}/pc/removePokemon/${pokemonId}`, teamId, this.httpOptions)
   }
 
   transferToBox(boxId: number, pokemonId: number) {
     console.log("within PC service transferToTeam method")
-    return this.http.put<String>(`${this.pcDevURL}/addPokemon/${pokemonId}`, boxId, this.httpOptions)
+    return this.http.put<String>(`${environment.BASE_URL}/pc/addPokemon/${pokemonId}`, boxId, this.httpOptions)
   }
 
 }

@@ -18,6 +18,7 @@ export class PcPageComponent implements OnInit {
   team: Team;
   pokeFromBox: boolean;
   activeBoxId: number;
+  trainerId: number;
 
   apiData: any;
   num: number;
@@ -27,9 +28,19 @@ export class PcPageComponent implements OnInit {
               private gachaService: GachaService) { }
 
   ngOnInit(): void {
+    this.trainerId = parseInt(sessionStorage.getItem('userId'))
     // change trainerId to pull from storage after testing
-    this.getBoxesForTrainer(1)
-    this.getTeamForTrainer(1)
+    this.updateBoxesForTrainer(this.trainerId)
+    this.getBoxesForTrainer(this.trainerId)
+    this.getTeamForTrainer(this.trainerId)
+  }
+  public updateBoxesForTrainer(trainerId: number) {
+    this.pcService.updateBoxes(trainerId)
+    .subscribe(
+      data => {
+        console.log(data)
+      }
+    )
   }
 
   public getBoxesForTrainer(trainerId: number) {
